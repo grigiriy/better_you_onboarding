@@ -1,8 +1,18 @@
 import { defineConfig } from '@tok/generation';
 
-export default defineConfig({
-  // If you want to add language/currency localization – see ./examples/meditation as reference
+import ActionSlide from './custom/ActionSlide.vue';
 
+const imageStyle =
+  'left: 50%; top: 50%; transform: translate(-50%, -50%); max-width: initial';
+
+export default defineConfig({
+  theme: 'dark',
+  definePresets: {
+    action_slide: ActionSlide,
+  },
+  currencyConfig: {
+    align: 'right',
+  },
   pages: [
     {
       slides: [
@@ -15,10 +25,45 @@ export default defineConfig({
           },
           shape: 'square',
           pagination: 'count',
-          title: 'Welcome to Telegram Onboarding Kit',
+          title: 'Здарова, ебать!',
           description:
-            "Create stunning onboarding and paywall for your Telegram Bot using the full power of Mini Apps<br><br>It's <b>simple</b>, <b>fast</b>, highly <b>customizable</b> and <a href='https://github.com/Easterok/telegram-onboarding-kit' target='_blank'>open-source</a>!",
-          button: 'Next',
+            "Это наш онбординг, пока на минималках, но дальше буду на картинки переделывать, как в аи фешне",
+          button: 'Заебись!',
+        },
+
+        {
+          extends: 'action_slide',
+          title: 'Re-dress photos with AI',
+          description: 'Tap the button below to try',
+          actionButton: ['Re-dress', 'Applied'],
+          nextButton: 'Next',
+          media: [
+            {
+              type: 'image',
+              src: import('./assets/img/1_init.webp'),
+              style: imageStyle,
+            },
+            {
+              type: 'image',
+              src: import('./assets/img/1_res.webp'),
+              style: imageStyle,
+            },
+          ],
+        },
+
+        // intro
+        {
+          media: {
+            type: 'sticker',
+            src: import('./assets/stickers/duck_hello.tgs'),
+            size: 250,
+          },
+          shape: 'square',
+          pagination: 'count',
+          title: 'Я его выплюнул на бесплатный сервак сейчас',
+          description:
+            "И я хз, всегда ли он онлайн, если да - заебись, если нет - придется подрочиться с конфигом для своего",
+          button: 'Понял, я заебался!',
         }
       ],
     },
@@ -33,11 +78,9 @@ export default defineConfig({
         size: 150,
       },
       shape: 'square',
-      title: 'Your beautiful Paywall',
+      title: 'Плати, ебать',
       list: [
-        'Adjustable product cards',
-        '<b>👛 Wallet Pay</b> and <b>Telegram Payments</b> ready. Add custom methods easily',
-        'Subscriptions or One-time payments',
+        'Но платежки я не подрубал еще, попозжа',
       ],
       products: [
         {
@@ -62,7 +105,7 @@ export default defineConfig({
           price: 20,
         },
       ],
-      mainButtonText: 'Buy for {price}',
+      mainButtonText: 'Держи {price}, делай заебись!',
       popup: {
         // popup for payment methods choice
         type: 'web',
