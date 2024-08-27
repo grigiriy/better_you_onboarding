@@ -83,7 +83,7 @@ export default defineConfig({
       path: '/paywall',
       media: {
         type: 'image',
-        src: import('./assets/img/spongebob_poster.png'),
+        src: import('./assets/img/spongebob_poster.webp'),
         style: 'aspect-ratio: 390/251',
       },
       title: 'Purchase credits to re-dress your photos',
