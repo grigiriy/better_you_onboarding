@@ -16,21 +16,6 @@ export default defineConfig({
   pages: [
     {
       slides: [
-        // intro
-        {
-          media: {
-            type: 'sticker',
-            src: import('./assets/stickers/duck_hello.tgs'),
-            size: 250,
-          },
-          shape: 'square',
-          pagination: 'count',
-          title: 'Здарова, ебать!',
-          description:
-            "Это наш онбординг, пока на минималках, но дальше буду на картинки переделывать, как в аи фешне",
-          button: 'Заебись!',
-        },
-
         {
           extends: 'action_slide',
           title: 'Re-dress photos with AI',
@@ -50,74 +35,89 @@ export default defineConfig({
             },
           ],
         },
-
-        // intro
         {
-          media: {
-            type: 'sticker',
-            src: import('./assets/stickers/duck_hello.tgs'),
-            size: 250,
+          extends: 'action_slide',
+          title: 'Ready for an important meeting?',
+          description: 'Find perfect business suit',
+          actionButton: ['Re-dress', 'Applied'],
+          nextButton: 'Next',
+          media: [
+            {
+              type: 'image',
+              src: import('./assets/img/2_init.webp'),
+              style: imageStyle,
+            },
+            {
+              type: 'image',
+              src: import('./assets/img/2_res.webp'),
+              style: imageStyle,
+            },
+          ],
+        },
+        {
+          extends: 'action_slide',
+          title: "Let's go to rave party!",
+          description: 'Your friends will be impressed',
+          actionButton: ['Re-dress', 'Applied'],
+          nextButton: {
+            to: '/paywall',
+            content: 'Next',
           },
-          shape: 'square',
-          pagination: 'count',
-          title: 'Я его выплюнул на бесплатный сервак сейчас',
-          description:
-            "И я хз, всегда ли он онлайн, если да - заебись, если нет - придется подрочиться с конфигом для своего",
-          button: 'Понял, я заебался!',
-        }
+          media: [
+            {
+              type: 'image',
+              src: import('./assets/img/3_init.webp'),
+              style: imageStyle,
+            },
+            {
+              type: 'image',
+              src: import('./assets/img/3_res.webp'),
+              style: imageStyle,
+            },
+          ],
+        },
       ],
     },
-
-    // paywall
     {
-      extends: 'paywall',
+      extends: 'paywall_row',
       path: '/paywall',
       media: {
-        type: 'sticker',
-        src: import('./assets/stickers/duck_money.tgs'),
-        size: 150,
+        type: 'image',
+        src: import('./assets/img/paywall.png'),
+        style: 'aspect-ratio: 390/251',
       },
-      shape: 'square',
-      title: 'Плати, ебать',
-      list: [
-        'Но платежки я не подрубал еще, попозжа',
-      ],
+      title: 'Purchase credits to re-dress your photos',
+      description: '1 credit = 1 photo re-dress',
+      mainButtonText: 'Buy credits for {price}',
       products: [
         {
-          id: '1_month_subscription',
-          title: '1 month subscription',
-          description: '2$/month',
-          discount: '',
-          price: 2,
+          id: '4_credits',
+          price: 4.99,
+          title: '4<br />credits',
+          description: 'Perfect to<br />start with',
         },
         {
-          id: '1_year_subscription',
-          title: '1 year subscription',
-          description: '1$/month',
-          discount: 'Discount 50%',
-          price: 12,
+          id: '20_credits',
+          price: 8.99,
+          title: '20<br />credits',
+          description: 'Best value<br />offer',
+          bestText: 'Best&nbsp;Choice',
         },
         {
-          id: 'lifetime_access',
-          title: 'Lifetime access',
-          description: '20$ once',
-          discount: 'Best offer',
-          price: 20,
+          id: '100 credits',
+          price: 19.99,
+          title: '100<br />credits',
+          description: 'For true<br />enthusiasts',
         },
       ],
-      mainButtonText: 'Держи {price}, делай заебись!',
-      popup: {
-        // popup for payment methods choice
-        type: 'web',
-      },
       links: [
         {
           text: 'Privacy policy',
-          href: 'https://google.com',
+          href: 'http://google.com',
         },
         {
           text: 'Terms of use',
-          href: 'https://google.com',
+          href: 'http://google.com',
         },
       ],
     },
