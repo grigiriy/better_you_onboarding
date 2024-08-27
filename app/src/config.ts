@@ -44,12 +44,12 @@ export default defineConfig({
           media: [
             {
               type: 'image',
-              src: import('./assets/img/2_init.webp'),
+              src: import('./assets/img/1_init.webp'),
               style: imageStyle,
             },
             {
               type: 'image',
-              src: import('./assets/img/2_res.webp'),
+              src: import('./assets/img/1_res.webp'),
               style: imageStyle,
             },
           ],
@@ -66,12 +66,12 @@ export default defineConfig({
           media: [
             {
               type: 'image',
-              src: import('./assets/img/3_init.webp'),
+              src: import('./assets/img/durov.webp'),
               style: imageStyle,
             },
             {
               type: 'image',
-              src: import('./assets/img/3_res.webp'),
+              src: import('./assets/img/spongebob_poster.webp'),
               style: imageStyle,
             },
           ],
@@ -83,7 +83,7 @@ export default defineConfig({
       path: '/paywall',
       media: {
         type: 'image',
-        src: import('./assets/img/paywall.png'),
+        src: import('./assets/img/spongebob_poster.png'),
         style: 'aspect-ratio: 390/251',
       },
       title: 'Purchase credits to re-dress your photos',
